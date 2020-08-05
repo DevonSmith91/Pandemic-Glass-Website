@@ -200,7 +200,7 @@ body {
     background-color: rgb(206, 206, 206);
 }
 
-#personalWork {
+#personalWork, #collabWork {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -261,6 +261,10 @@ body {
 
 /* Carousel */
 
+.animationClose {
+    display: none !important;
+}
+
 #rotatingCarousel {
     display: flex;
     align-items: center;
@@ -268,8 +272,9 @@ body {
     width: 65vw;
 }
 
-#shiftLeft, #shiftRight {
+#left, #right {
     /* css for left and right buttons */
+    width: 5vw;
 }
 
 #imageContainer {

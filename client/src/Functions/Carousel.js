@@ -6,12 +6,6 @@ export default function Carousel(props) {
     imgArray.push(img.url);
   });
 
-  // const [currentImg, updateImg] = useState(imgArray[0]);
-
-  // const imageClick = (e) => {
-  //   console.log("clicked");
-  // };
-
   const [index, setIndex] = useState(0);
 
   const handleNav = (e) => {
@@ -63,17 +57,5 @@ export default function Carousel(props) {
       </div>
     </div>
 
-    // <div className="thumbnailWrapper">
-    //   {imgArray.map((image) => (
-    //     <img
-    //       id={image}
-    //       key={image}
-    //       className="thumbnail"
-    //       src={image}
-    //       alt="smallImg"
-    //       onClick={imageClick}
-    //     />
-    //   ))}
-    // </div>
   );
 }

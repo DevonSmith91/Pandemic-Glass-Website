@@ -25,15 +25,19 @@ export default class Gallery extends React.Component {
       // Then it will set the state to either show or hide the personal gallery
       this.setState((prevState) => {
         return {
+          // set this.state.personal based on if this.state.perGallery is defined as open or closed.
           personal:
             this.state.perGallery === "showGallery"
               ? "none"
               : !prevState.personal,
+          // set this.state.collab to "none" so that if collaboration is opened it will close it.
           collab: "none",
+          // set this.state.perGallery to showGallery or hideGallery based on if the Gallery is currently opened or closed. 
           perGallery:
             this.state.perGallery === "showGallery"
               ? "hideGallery"
               : "showGallery",
+          // setting colGallery to an empty string if it is still an empty string, or else setting it to hideGallery to make it close if it was opened when the user clicked to open the personal
           colGallery: this.state.colGallery === "" ? "" : "hideGallery",
         };
       });
@@ -66,6 +70,7 @@ export default class Gallery extends React.Component {
 
   render() {
     let cGalImg = this.state.collabImages;
+    let pGalImg = this.state.personalImages;
     return (
       <div id="galleryWrapper">
         <div id="personalWork">
