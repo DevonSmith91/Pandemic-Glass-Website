@@ -1,6 +1,5 @@
 import React from "react";
-import Carousel from "react-bootstrap/carousel";
-import Logo from "../Images/Logo.jpg";
+import Carousel from "../Functions/Carousel.js";
 
 export default class Gallery extends React.Component {
   constructor(props) {
@@ -15,7 +14,15 @@ export default class Gallery extends React.Component {
   }
 
   openMe = (e) => {
+    // User clicks on Personal Gallery
     if (e.target.id === "personalSubtitle") {
+      //If the personal gallery isn't populated yet, it will fetch for the images for the gallery and set the object with the images into state
+      if (!this.state.personalImages) {
+        fetch("/personalImages")
+          .then((res) => res.json())
+          .then((res) => this.setState({ personalImages: res }));
+      }
+      // Then it will set the state to either show or hide the personal gallery
       this.setState((prevState) => {
         return {
           personal:
@@ -31,7 +38,15 @@ export default class Gallery extends React.Component {
         };
       });
     }
+    // If the user clicks on the collab gallery
     if (e.target.id === "collabSubtitle") {
+      // If the collab gallery isn't populated yet, it will fetch for the images for the gallery and set the object with the images into state
+      if (!this.state.collabImages) {
+        fetch("/collabImages")
+          .then((res) => res.json())
+          .then((res) => this.setState({ collabImages: res }));
+      }
+      // Then it will set the state to either show or hide the collab gallery
       this.setState((prevState) => {
         return {
           personal: "none",
@@ -50,65 +65,21 @@ export default class Gallery extends React.Component {
   };
 
   render() {
+    let cGalImg = this.state.collabImages;
     return (
       <div id="galleryWrapper">
         <div id="personalWork">
           <div id="openPersonal" className="gallery">
             <div id="personalSubtitle" onClick={this.openMe}>
-            Personal
+              Personal
             </div>
             <div id="galleryWindow" className={this.state.perGallery}>
               <div id="galleryContent" style={{ display: this.state.personal }}>
-                Fill me with art!
-
-
-
-                {/* <Carousel indicators={false}>
-                  <Carousel.Item>
-                    <img
-                      width={50}
-                      className="d-block w-100"
-                      src={Logo}
-                      alt="First slide"
-                    />
-
-                    <Carousel.Caption>
-                      <h3>Second slide label</h3>
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      </p>
-                    </Carousel.Caption>
-                  </Carousel.Item>
-                  <Carousel.Item>
-                    <img
-                      className="d-block w-100"
-                      src={Logo}
-                      alt="Second slide"
-                    />
-
-                    <Carousel.Caption>
-                      <h3>Second slide label</h3>
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      </p>
-                    </Carousel.Caption>
-                  </Carousel.Item>
-                  <Carousel.Item>
-                    <img
-                      className="d-block w-100"
-                      src={Logo}
-                      alt="Third slide"
-                    />
-
-                    <Carousel.Caption>
-                      <h3>Third slide label</h3>
-                      <p>
-                        Praesent commodo cursus magna, vel scelerisque nisl
-                        consectetur.
-                      </p>
-                    </Carousel.Caption>
-                  </Carousel.Item>
-                </Carousel> */}
+                {this.state.personalImages ? (
+                  <div>Art goes here</div>
+                ) : (
+                  "Fill me with art!"
+                )}
               </div>
             </div>
           </div>
@@ -120,7 +91,11 @@ export default class Gallery extends React.Component {
             </div>
             <div id="galleryWindow" className={this.state.colGallery}>
               <div id="galleryContent" style={{ display: this.state.collab }}>
-                Fill me with Art!
+                {this.state.collabImages ? (
+                  <Carousel cGalImg={cGalImg} />
+                ) : (
+                  <div>Loading...</div>
+                )}
               </div>
             </div>
           </div>

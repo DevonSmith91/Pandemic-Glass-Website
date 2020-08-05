@@ -16,11 +16,6 @@ export default class App extends React.Component {
       location: "",
     };
   }
-  browserButtonHandler = (e) => {
-    this.setState({
-      location: e.target.location.pathname,
-    });
-  };
 
   componentDidMount() {
     window.onpopstate = this.browserButtonHandler;
@@ -31,6 +26,12 @@ export default class App extends React.Component {
       });
     }
   }
+
+  browserButtonHandler = (e) => {
+    this.setState({
+      location: e.target.location.pathname,
+    });
+  };
 
   locationHandler = (e) => {
     this.setState({
