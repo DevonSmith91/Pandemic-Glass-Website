@@ -190,6 +190,15 @@ body {
     }
 }
 
+@keyframes fade-out {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
 #galleryWrapper {
     display: flex;
     flex-direction: column;
@@ -223,6 +232,7 @@ body {
 }
 
 .showGallery {
+    overflow: hidden;
     height: 53vh;
     animation: open .5s ease-in forwards;
     width: 80vw;
@@ -231,14 +241,16 @@ body {
 }
 
 .hideGallery {
-    animation: close .5s ease-in;
+    overflow: hidden;
+    animation: close .3s ease-in;
     animation-fill-mode: forwards;
+    animation-delay: .3s;
     width: 80vw;
     background: rgb(255, 255, 255);
     background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(206, 206, 206, 0.459) 75%);
 }
 
-#galleryContent {
+/* #galleryContent {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -247,7 +259,7 @@ body {
     animation-delay: 0.4s;
     animation-fill-mode: forwards;
     opacity: 0;
-}
+} */
 
 #innerCaraWrapper {
     height: 40vh;
@@ -261,8 +273,25 @@ body {
 
 /* Carousel */
 
-.animationClose {
-    display: none !important;
+.galFadeIn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 53vh;
+    animation: fade-in 0.7s ease-in;
+    animation-delay: 0.4s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+.galFadeAway {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 53vh;
+    animation: fade-out 0.4s ease-in;
+    animation-fill-mode: forwards;
+    /* display: none !important; */
 }
 
 #rotatingCarousel {

@@ -14,50 +14,64 @@ export default class Gallery extends React.Component {
   }
 
   openMe = (e) => {
-    // User clicks on Personal Gallery
     if (e.target.id === "personalSubtitle") {
-      //If the personal gallery isn't populated yet, it will fetch for the images for the gallery and set the object with the images into state
+      // personal fetch images.
       if (!this.state.personalImages) {
         fetch("/personalImages")
           .then((res) => res.json())
           .then((res) => this.setState({ personalImages: res }));
       }
-      // Then it will set the state to either show or hide the personal gallery
+      // personal change state.
       this.setState((prevState) => {
         return {
-          // set this.state.personal based on if this.state.perGallery is defined as open or closed.
           personal:
             this.state.perGallery === "showGallery"
-              ? "none"
-              : !prevState.personal,
-          // set this.state.collab to "none" so that if collaboration is opened it will close it.
-          collab: "none",
-          // set this.state.perGallery to showGallery or hideGallery based on if the Gallery is currently opened or closed. 
+              ? null
+              : !this.state.personal,
+          collabClass:
+            this.state.colGallery === "showGallery"
+              ? "galFadeAway"
+              : null,
+          personalClass:
+            this.state.perGallery === "showGallery"
+              ? "galFadeAway"
+              : "galFadeIn",
           perGallery:
             this.state.perGallery === "showGallery"
               ? "hideGallery"
               : "showGallery",
-          // setting colGallery to an empty string if it is still an empty string, or else setting it to hideGallery to make it close if it was opened when the user clicked to open the personal
           colGallery: this.state.colGallery === "" ? "" : "hideGallery",
         };
       });
+
+      if (this.state.perGallery === "showGallery") {
+        setTimeout(this.hidePerDisplay, 400);
+      }
+      if (this.state.colGallery === "showGallery") {
+        setTimeout(this.hideColDisplay, 400);
+      }
+
     }
-    // If the user clicks on the collab gallery
     if (e.target.id === "collabSubtitle") {
-      // If the collab gallery isn't populated yet, it will fetch for the images for the gallery and set the object with the images into state
+      // collab fetch images.
       if (!this.state.collabImages) {
         fetch("/collabImages")
           .then((res) => res.json())
           .then((res) => this.setState({ collabImages: res }));
       }
-      // Then it will set the state to either show or hide the collab gallery
+      // collab change state.
       this.setState((prevState) => {
         return {
-          personal: "none",
           collab:
+            this.state.colGallery === "showGallery" ? null : !prevState.collab,
+          collabClass:
             this.state.colGallery === "showGallery"
-              ? "none"
-              : !prevState.collab,
+              ? "galFadeAway"
+              : "galFadeIn",
+          personalClass:
+            this.state.perGallery === "showGallery"
+              ? "galFadeAway"
+              : null,
           perGallery: this.state.perGallery === "" ? "" : "hideGallery",
           colGallery:
             this.state.colGallery === "showGallery"
@@ -65,7 +79,29 @@ export default class Gallery extends React.Component {
               : "showGallery",
         };
       });
+      if (this.state.perGallery === "showGallery") {
+        setTimeout(this.hidePerDisplay, 400);
+      }
+      if (this.state.colGallery === "showGallery") {
+        setTimeout(this.hideColDisplay, 400);
+      }
     }
+  };
+
+  hidePerDisplay = () => {
+    console.log("hello from hide Per display");
+    this.setState({
+      personal:
+        this.state.perGallery === "showGallery" ? !this.state.personal : "none",
+    });
+  };
+
+  hideColDisplay = () => {
+    console.log("hello from hide Col display");
+    this.setState({
+      collab:
+        this.state.ColGallery === "showGallery" ? !this.state.collab : "none",
+    });
   };
 
   render() {
@@ -79,11 +115,14 @@ export default class Gallery extends React.Component {
               Personal
             </div>
             <div id="galleryWindow" className={this.state.perGallery}>
-              <div id="galleryContent" style={{ display: this.state.personal }}>
+              <div
+                className={this.state.personalClass}
+                style={{ display: this.state.personal }}
+              >
                 {this.state.personalImages ? (
                   <div>Art goes here</div>
                 ) : (
-                  "Fill me with art!"
+                  "Loading.."
                 )}
               </div>
             </div>
@@ -95,7 +134,7 @@ export default class Gallery extends React.Component {
               Collaboration
             </div>
             <div id="galleryWindow" className={this.state.colGallery}>
-              <div id="galleryContent" style={{ display: this.state.collab }}>
+              <div className={this.state.collabClass} style={{ display: this.state.collab }}>
                 {this.state.collabImages ? (
                   <Carousel cGalImg={cGalImg} />
                 ) : (
