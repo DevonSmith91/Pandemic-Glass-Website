@@ -15,32 +15,30 @@ export default class Gallery extends React.Component {
 
   openMe = (e) => {
     if (e.target.id === "personalSubtitle") {
-      // personal fetch images.
+      // fetching images for the personal gallery.
       if (!this.state.personalImages) {
         fetch("/personalImages")
           .then((res) => res.json())
           .then((res) => this.setState({ personalImages: res }));
       }
-      // personal change state.
+      // changes the state to show the personal gallery.
       this.setState((prevState) => {
         return {
           personal:
             this.state.perGallery === "showGallery"
               ? null
               : !this.state.personal,
-          collabClass:
-            this.state.colGallery === "showGallery"
-              ? "galFadeAway"
-              : null,
-          personalClass:
-            this.state.perGallery === "showGallery"
-              ? "galFadeAway"
-              : "galFadeIn",
           perGallery:
             this.state.perGallery === "showGallery"
               ? "hideGallery"
               : "showGallery",
+          personalClass:
+            this.state.perGallery === "showGallery"
+              ? "galFadeAway"
+              : "galFadeIn",
           colGallery: this.state.colGallery === "" ? "" : "hideGallery",
+          collabClass:
+            this.state.colGallery === "showGallery" ? "galFadeAway" : null,
         };
       });
 
@@ -50,7 +48,6 @@ export default class Gallery extends React.Component {
       if (this.state.colGallery === "showGallery") {
         setTimeout(this.hideColDisplay, 400);
       }
-
     }
     if (e.target.id === "collabSubtitle") {
       // collab fetch images.
@@ -69,9 +66,7 @@ export default class Gallery extends React.Component {
               ? "galFadeAway"
               : "galFadeIn",
           personalClass:
-            this.state.perGallery === "showGallery"
-              ? "galFadeAway"
-              : null,
+            this.state.perGallery === "showGallery" ? "galFadeAway" : null,
           perGallery: this.state.perGallery === "" ? "" : "hideGallery",
           colGallery:
             this.state.colGallery === "showGallery"
@@ -134,7 +129,10 @@ export default class Gallery extends React.Component {
               Collaboration
             </div>
             <div id="galleryWindow" className={this.state.colGallery}>
-              <div className={this.state.collabClass} style={{ display: this.state.collab }}>
+              <div
+                className={this.state.collabClass}
+                style={{ display: this.state.collab }}
+              >
                 {this.state.collabImages ? (
                   <Carousel cGalImg={cGalImg} />
                 ) : (

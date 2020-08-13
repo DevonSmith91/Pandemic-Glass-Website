@@ -242,9 +242,8 @@ body {
 
 .hideGallery {
     overflow: hidden;
-    animation: close .3s ease-in;
+    animation: close .5s ease-in;
     animation-fill-mode: forwards;
-    animation-delay: .3s;
     width: 80vw;
     background: rgb(255, 255, 255);
     background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(206, 206, 206, 0.459) 75%);
@@ -289,7 +288,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 53vh;
-    animation: fade-out 0.4s ease-in;
+    animation: fade-out 0.25s ease-in;
     animation-fill-mode: forwards;
     /* display: none !important; */
 }
