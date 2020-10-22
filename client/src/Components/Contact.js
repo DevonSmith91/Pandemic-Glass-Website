@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import meWorking from "../Images/Me_working.jpg";
 
-export default function Contact() {
+export default function Contact(props) {
   const [showContact, setShowContact] = useState(true);
   const [submitted, setSubmitted] = useState(null);
   const [name, setName] = useState("");
@@ -20,12 +20,12 @@ export default function Contact() {
 
   function submit(e) {
     e.preventDefault();
-
     let dataObj = {
       name: name,
       email: email,
       message: message,
     };
+
     fetch("/send", {
       method: "POST",
       body: JSON.stringify(dataObj),
@@ -50,8 +50,7 @@ export default function Contact() {
   if (submitted === true) {
     subMessage = (
       <p>
-        Thank you for your feedback! <br />I will get back to you as soon as I
-        can.
+        Thank you for your message! <br />I will get back to you as soon as possible.
       </p>
     );
   } else if (submitted === false) {
