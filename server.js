@@ -51,12 +51,9 @@ app.get("/collabImages", async (req, res) => {
   );
 });
 
-
-
 /* #region  Individual Image Gallery */
 
 //The Following code block is for when I want to make each image clickable to open an individual gallery for that image. This will be how I want to go about making those fetches to cloudinary
-
 
 // set up path params for individual images when clicked on in the carousel. this will fetch all images that have the tag associated with the params
 
@@ -93,7 +90,7 @@ const transport = {
 //using the above information to create my nodemailer to send information using an email address
 let transporter = nodemailer.createTransport(transport);
 
-//lets me know if the transporter is working appropriately 
+//lets me know if the transporter is working appropriately
 transporter.verify((error, success) => {
   if (error) {
     console.log(error);
@@ -111,7 +108,7 @@ app.post("/send", (req, res, next) => {
 
   //creates the content of the email being sent over
   let content = `Name: ${name}\nEmail: ${email}\nMessage:${message}`;
-  
+
   //creates an object that will be the email that gets sent over
   let mail = {
     from: name,

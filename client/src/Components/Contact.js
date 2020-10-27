@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import meWorking from "../Images/Me_working.jpg";
+import meWorking from "../Images/meWorkingContactPage.png";
 
 export default function Contact(props) {
   const [showContact, setShowContact] = useState(true);
@@ -69,12 +69,13 @@ export default function Contact(props) {
   return (
     <div id="contactWrapper">
       <div id="contactLeft">
-        {/* <img id="workingPic" src={meWorking} alt="Picture of me working" />
-        <p>
+        <img id="workingPic" src={meWorking} alt="Picture of me working" />
+        <p id="contactPara">
           Please feel free to reach out with any comments, concerns, or interest
           in potential collaboration projects!
-        </p> */}
+        </p>
       </div>
+      <div id="contactCenter"></div>
       <div id="contactRight">
         {showContact ? (
           <form id="contactFormsWrapper" onSubmit={submit} method="POST">
