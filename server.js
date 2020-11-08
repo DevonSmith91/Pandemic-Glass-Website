@@ -5,6 +5,7 @@ const path = require("path");
 const app = express();
 const port = process.env.PORT || 5000;
 
+
 //cloudinary being imported
 const cloudinary = require("cloudinary");
 
@@ -15,7 +16,9 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 
 // defining the path for the server to launch the html page form
-app.use(express.static(path.resolve("./client/build")));
+const staticDir = process.env.DEV ? "./client/public" : "./client/build"
+
+app.use(express.static(path.resolve(staticDir)));
 
 //Looking at cloudinary for images with the tag "personalImages" and returning them to display in the personal gallery
 app.get("/personalImages", async (req, res) => {

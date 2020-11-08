@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import meWorking from "../Images/meWorkingContactPage.png";
+import meWorking from "../Images/Me_working.jpg";
+import instagram from "../Images/footerlink-instagram.png"
 
 export default function Contact(props) {
   const [showContact, setShowContact] = useState(true);
@@ -70,10 +71,10 @@ export default function Contact(props) {
     <div id="contactWrapper">
       <div id="contactLeft">
         <img id="workingPic" src={meWorking} alt="Picture of me working" />
-        <p id="contactPara">
+        {/* <p id="contactPara">
           Please feel free to reach out with any comments, concerns, or interest
           in potential collaboration projects!
-        </p>
+        </p> */}
       </div>
       <div id="contactCenter"></div>
       <div id="contactRight">
@@ -111,6 +112,11 @@ export default function Contact(props) {
               <button id="submitButton" type="submit">
                 Submit
               </button>
+              <div id="connectionLinks">
+                <a href="https://www.instagram.com/pandemic_glass/">
+                  <img className="connections" src={instagram} alt="" />
+                </a>
+              </div>
             </div>
           </form>
         ) : (
