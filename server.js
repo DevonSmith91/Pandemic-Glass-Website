@@ -11,7 +11,6 @@ const cloudinary = require("cloudinary");
 
 //post nodemailer requirements
 const nodemailer = require("nodemailer");
-const creds = require("./config");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 
@@ -85,8 +84,8 @@ const transport = {
   host: "smtp.gmail.com",
   port: 587,
   auth: {
-    user: creds.USER,
-    pass: creds.PASS,
+    user: process.env.CONTACTUSER,
+    pass: process.env.CONTACTPASS,
   },
 };
 

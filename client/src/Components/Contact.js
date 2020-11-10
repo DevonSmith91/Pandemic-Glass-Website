@@ -71,10 +71,12 @@ export default function Contact(props) {
     <div id="contactWrapper">
       <div id="contactLeft">
         <img id="workingPic" src={meWorking} alt="Picture of me working" />
-        {/* <p id="contactPara">
-          Please feel free to reach out with any comments, concerns, or interest
-          in potential collaboration projects!
-        </p> */}
+        <div id="contactParaWrapper">
+          <p id="contactPara">
+            Please feel free to reach out with any comments, concerns, or
+            interest in potential collaboration projects!
+          </p>
+        </div>
       </div>
       <div id="contactCenter"></div>
       <div id="contactRight">

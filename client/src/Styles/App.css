@@ -7,6 +7,46 @@ body {
     overflow: hidden
 }
 
+/* Animations */
+
+@keyframes open {
+    0% {
+        height: 0vh;
+        width: 80vw;
+    }
+    100% {
+        height: 53vh;
+        width: 80vw;
+    }
+}
+
+@keyframes close {
+    0% {
+        height: 53vh;
+    }
+    100% {
+        height: 0vh;
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fade-out {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
 /* Hover effecs on Landing */
 
 @-webkit-keyframes hvr-ripple-out {
@@ -112,6 +152,7 @@ body {
     background-color: black;
     height: 12vh;
     position: sticky;
+    z-index: 100;
 }
 
 #headerWrapper a {
@@ -161,44 +202,6 @@ body {
 
 /* Gallery */
 
-@keyframes open {
-    0% {
-        height: 0vh;
-        width: 80vw;
-    }
-    100% {
-        height: 53vh;
-        width: 80vw;
-    }
-}
-
-@keyframes close {
-    0% {
-        height: 53vh;
-    }
-    100% {
-        height: 0vh;
-    }
-}
-
-@keyframes fade-in {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-@keyframes fade-out {
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
-}
-
 #galleryWrapper {
     display: flex;
     flex-direction: column;
@@ -214,6 +217,19 @@ body {
     flex-direction: column;
     align-items: center;
     width: 90vw;
+}
+
+#personalWork {
+    animation: fade-in 0.7s ease-in;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+#collabWork {
+    animation: fade-in 0.7s ease-in;
+    animation-fill-mode: forwards;
+    animation-delay: .3s;
+    opacity: 0;
 }
 
 #openPersonal, #openCollab {
@@ -331,16 +347,21 @@ body {
     height: 88vh;
     width: 100%;
     background-color: rgb(206, 206, 206);
+    
 }
 
 #contactLeft {
-    width: 66%;
+    width: 67%;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
     border: 1px solid black;
+    animation: fade-in .7s ease;
+    animation-delay: .1s;
+    animation-fill-mode: forwards;
+    opacity: 0;
 }
 
 #workingPic {
@@ -348,24 +369,57 @@ body {
     height: 100%;
 }
 
-#contactPara{
-    margin:0;
-    padding: 0;
-    width: 35vw;
+@keyframes slide {
+    0%{
+        transform: translateX(0px)
+    }
+    100%{
+        transform: translateX(35vw)
+    }
 }
 
-/* #contactCenter {
+#contactParaWrapper {
+    display: flex;
+    height: 20vh;
+    width: 45vw;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.904);
+    color: white;
+    bottom: 0;
+    left: 0;
+    margin-bottom: 3vh;
+    margin-left: 5vw;
+    animation: fade-in 1s ease;
+    animation-delay: .5s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+#contactPara {
+    margin: 0;
+    padding: 0;
+    width: 35vw;
+    font-size: 3vh;
+}
+
+#contactCenter {
     margin-top: 100px;
     background: linear-gradient(to bottom, rgb(206, 206, 206) 1%, rgb(255, 255, 255, .8) 33%, rgb(255, 255, 255, .8) 66%, rgb(206, 206, 206) 99%) 100%;
     height: 75%;
     width: 2px;
-} */
+}
 
 #contactRight {
     display: flex;
     justify-content: center;
     width: 33%;
     height: 100%;
+    animation: fade-in .7s ease-in;
+    animation-delay: .3s;
+    animation-fill-mode: forwards;
+    opacity: 0;
 }
 
 #subMessage {
@@ -431,14 +485,14 @@ body {
     resize: none;
 }
 
-#connectionLinks{
+#connectionLinks {
     display: flex;
     justify-content: center;
     width: 100%;
     padding-top: 3vh;
 }
 
-.connections{
+.connections {
     height: 10vh;
     margin-left: 3px;
     margin-top: 20px;
