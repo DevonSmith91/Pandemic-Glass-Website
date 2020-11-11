@@ -99,13 +99,13 @@ body {
 /* Landing Page */
 
 #landingWrapper {
-    background-color: black;
-    align-items: center;
-    color: white;
     display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: black;
+    color: white;
     height: 100vh;
     width: 100vw;
-    flex-direction: column;
 }
 
 #landingLogoWrapper {
@@ -124,10 +124,10 @@ body {
 
 #landingButtonContainer {
     display: flex;
-    width: 40vw;
-    height: 15vh;
     justify-content: space-evenly;
     align-items: center;
+    width: 40vw;
+    height: 15vh;
     font-size: 2vw;
 }
 
@@ -189,7 +189,7 @@ body {
 #homeWrapper {
     height: 88vh;
     width: 100%;
-    background-color: rgb(206, 206, 206);
+    background-color: black;
 }
 
 /* About */
@@ -347,17 +347,15 @@ body {
     height: 88vh;
     width: 100%;
     background-color: rgb(206, 206, 206);
-    
 }
 
 #contactLeft {
-    width: 67%;
-    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    border: 1px solid black;
+    width: 67%;
+    height: 100%;
     animation: fade-in .7s ease;
     animation-delay: .1s;
     animation-fill-mode: forwards;
@@ -370,27 +368,27 @@ body {
 }
 
 @keyframes slide {
-    0%{
+    0% {
         transform: translateX(0px)
     }
-    100%{
+    100% {
         transform: translateX(35vw)
     }
 }
 
 #contactParaWrapper {
     display: flex;
-    height: 20vh;
-    width: 45vw;
     justify-content: center;
     align-items: center;
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0.904);
-    color: white;
+    height: 20vh;
+    width: 45vw;
     bottom: 0;
     left: 0;
-    margin-bottom: 3vh;
+    position: absolute;
     margin-left: 5vw;
+    margin-bottom: 3vh;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.904);
     animation: fade-in 1s ease;
     animation-delay: .5s;
     animation-fill-mode: forwards;
@@ -409,6 +407,7 @@ body {
     background: linear-gradient(to bottom, rgb(206, 206, 206) 1%, rgb(255, 255, 255, .8) 33%, rgb(255, 255, 255, .8) 66%, rgb(206, 206, 206) 99%) 100%;
     height: 75%;
     width: 2px;
+    margin-left: 10px;
 }
 
 #contactRight {
@@ -433,19 +432,19 @@ body {
 }
 
 #contactFormsWrapper {
-    height: 88vh;
-    width: 70%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 88vh;
+    width: 70%;
 }
 
 #contactForms {
-    height: 70vh;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    height: 70vh;
 }
 
 .label {
