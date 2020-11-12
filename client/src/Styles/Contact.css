@@ -1,0 +1,165 @@
+#contactWrapper {
+  display: flex;
+  justify-content: space-evenly;
+  height: 88vh;
+  width: 100%;
+  background-color: rgb(206, 206, 206);
+}
+
+#contactLeft {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 67%;
+  height: 100%;
+  animation: fade-in .7s ease;
+  animation-delay: .1s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+#workingPic {
+  width: 67vw;
+  height: 170vh;
+  bottom: -55vh;
+  position: absolute;
+  overflow: hidden;
+  box-shadow: 7px 0px 15px 2px rgba(0, 0, 0, 0.719);
+}
+
+#contactParaWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20vh;
+  width: 45vw;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  margin-left: 5vw;
+  margin-bottom: 3vh;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.904);
+  animation: slideRight 1s .5s ease forwards;
+  opacity: 0;
+}
+
+#contactPara {
+  margin: 0;
+  padding: 0;
+  width: 35vw;
+  font-size: 3vh;
+}
+
+#contactRight {
+  display: flex;
+  justify-content: center;
+  width: 33%;
+  height: 100%;
+}
+
+#contactFormsWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 88vh;
+  width: 70%;
+}
+
+#contactForms {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 70vh;
+}
+
+#nameWrapper {
+  animation: slideLeft .7s .2s forwards ease;
+  opacity: 0;
+}
+
+#emailWrapper {
+  animation: slideLeft .7s .35s forwards ease;
+  opacity: 0;
+}
+
+#messageWrapper {
+  animation: slideLeft .7s .5s forwards ease;
+  opacity: 0;
+}
+
+.formInput {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 23vw;
+}
+
+.label {
+  margin-bottom: 0;
+  margin-top: .5rem;
+  font-size: 3.5vh;
+  justify-self: center;
+}
+
+#nameForm, #emailForm {
+  height: 6vh;
+}
+
+#nameForm, #emailForm, #messageForm {
+  border: none;
+  background-color: rgb(206, 206, 206);
+  background-image: linear-gradient(to right, rgb(206, 206, 206, 0.425), rgba(255, 255, 255, 1), rgba(206, 206, 206, 0.425));
+  text-align: center;
+  font-size: 3.3vh;
+  outline: none;
+  resize: none;
+}
+
+#submitButton {
+  border: none;
+  background-color: black;
+  color: white;
+  height: 6vh;
+  font-size: 4vh;
+  animation: slideLeft .7s .65s forwards ease;
+  margin-top: 15px;
+  opacity: 0;
+}
+
+#connectionLinks {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding-top: 3vh;
+  animation: slideLeft .7s .8s forwards ease;
+  opacity: 0;
+}
+
+.connections {
+  height: 10vh;
+  margin-left: 3px;
+  margin-top: 20px;
+}
+
+#subMessageWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 88vh;
+  width: 100vw;
+}
+
+#subMessage {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 4vh;
+  animation: slideLeft .7s .4s forwards ease;
+  opacity: 0;
+}

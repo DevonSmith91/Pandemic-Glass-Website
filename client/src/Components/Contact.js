@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import meWorking from "../Images/Me_working.jpg";
+import "../Styles/Contact.css"
+// import meWorking from "../Images/Me_working.jpg";
 import instagram from "../Images/footerlink-instagram.png"
 
 export default function Contact(props) {
@@ -70,7 +71,11 @@ export default function Contact(props) {
   return (
     <div id="contactWrapper">
       <div id="contactLeft">
-        <img id="workingPic" src={meWorking} alt="Picture of me working" />
+        <img
+          id="workingPic"
+          src="https://pbs.twimg.com/media/BzCRqZWCUAASmm8?format=jpg&name=large"
+          alt="me working"
+        />
         <div id="contactParaWrapper">
           <p id="contactPara">
             Please feel free to reach out with any comments, concerns, or
@@ -78,12 +83,11 @@ export default function Contact(props) {
           </p>
         </div>
       </div>
-      <div id="contactCenter"></div>
       <div id="contactRight">
         {showContact ? (
           <form id="contactFormsWrapper" onSubmit={submit} method="POST">
             <div id="contactForms">
-              <div className="formInput">
+              <div id="nameWrapper" className="formInput">
                 <label className="label">Name</label>
                 <input
                   id="nameForm"
@@ -92,7 +96,7 @@ export default function Contact(props) {
                   required
                 />
               </div>
-              <div className="formInput">
+              <div id="emailWrapper" className="formInput">
                 <label className="label">Email address</label>
                 <input
                   id="emailForm"
@@ -102,7 +106,7 @@ export default function Contact(props) {
                   required
                 />
               </div>
-              <div className="formInput">
+              <div id="messageWrapper" className="formInput">
                 <label className="label">Message</label>
                 <textarea
                   id="messageForm"
@@ -122,7 +126,14 @@ export default function Contact(props) {
             </div>
           </form>
         ) : (
-          <div id="subMessage">{subMessage}</div>
+          <div id="subMessageWrapper">
+            <div id="subMessage">{subMessage}</div>
+            <div id="connectionLinks">
+              <a href="https://www.instagram.com/pandemic_glass/">
+                <img className="connections" src={instagram} alt="" />
+              </a>
+            </div>
+          </div>
         )}
       </div>
     </div>

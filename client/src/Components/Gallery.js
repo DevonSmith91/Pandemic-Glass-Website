@@ -101,7 +101,7 @@ export default class Gallery extends React.Component {
 
   render() {
     let cGalImg = this.state.collabImages;
-    let pGalImg = this.state.personalImages;
+    // let pGalImg = this.state.personalImages;
     return (
       <div id="galleryWrapper">
         <div id="personalWork">

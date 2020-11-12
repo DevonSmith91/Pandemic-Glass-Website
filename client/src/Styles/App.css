@@ -1,4 +1,4 @@
-/* Full Project */
+/* Full Project CSS */
 
 body {
     margin: 0;
@@ -44,6 +44,28 @@ body {
     }
     100% {
         opacity: 0;
+    }
+}
+
+@keyframes slideRight {
+    0% {
+        opacity: 0;
+        transform: translate(-80%)
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0%)
+    }
+}
+
+@keyframes slideLeft {
+    0% {
+        opacity: 0;
+        transform: translate(80%)
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0%)
     }
 }
 
@@ -337,162 +359,4 @@ body {
     height: 88vh;
     width: 100%;
     background-color: rgb(206, 206, 206);
-}
-
-/* Contact */
-
-#contactWrapper {
-    display: flex;
-    justify-content: space-evenly;
-    height: 88vh;
-    width: 100%;
-    background-color: rgb(206, 206, 206);
-}
-
-#contactLeft {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 67%;
-    height: 100%;
-    animation: fade-in .7s ease;
-    animation-delay: .1s;
-    animation-fill-mode: forwards;
-    opacity: 0;
-}
-
-#workingPic {
-    /* width: 60vw; */
-    height: 100%;
-}
-
-@keyframes slide {
-    0% {
-        transform: translateX(0px)
-    }
-    100% {
-        transform: translateX(35vw)
-    }
-}
-
-#contactParaWrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 20vh;
-    width: 45vw;
-    bottom: 0;
-    left: 0;
-    position: absolute;
-    margin-left: 5vw;
-    margin-bottom: 3vh;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.904);
-    animation: fade-in 1s ease;
-    animation-delay: .5s;
-    animation-fill-mode: forwards;
-    opacity: 0;
-}
-
-#contactPara {
-    margin: 0;
-    padding: 0;
-    width: 35vw;
-    font-size: 3vh;
-}
-
-#contactCenter {
-    margin-top: 100px;
-    background: linear-gradient(to bottom, rgb(206, 206, 206) 1%, rgb(255, 255, 255, .8) 33%, rgb(255, 255, 255, .8) 66%, rgb(206, 206, 206) 99%) 100%;
-    height: 75%;
-    width: 2px;
-    margin-left: 10px;
-}
-
-#contactRight {
-    display: flex;
-    justify-content: center;
-    width: 33%;
-    height: 100%;
-    animation: fade-in .7s ease-in;
-    animation-delay: .3s;
-    animation-fill-mode: forwards;
-    opacity: 0;
-}
-
-#subMessage {
-    height: 88vh;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-size: 4.5vh;
-}
-
-#contactFormsWrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 88vh;
-    width: 70%;
-}
-
-#contactForms {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    height: 70vh;
-}
-
-.label {
-    font-size: 3.5vh;
-    justify-self: center;
-}
-
-.formInput {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    width: 23vw;
-}
-
-#submitButton {
-    border: none;
-    background-color: black;
-    color: white;
-    height: 6vh;
-    font-size: 4vh;
-}
-
-#nameForm, #emailForm {
-    height: 6vh;
-}
-
-#nameForm, #emailForm, #messageForm {
-    border: none;
-    background-color: rgb(206, 206, 206);
-    background-image: linear-gradient(to right, rgb(206, 206, 206, 0.425), rgba(255, 255, 255, 1), rgba(206, 206, 206, 0.425));
-    text-align: center;
-    font-size: 3.3vh;
-    outline: none;
-}
-
-#messageForm {
-    resize: none;
-}
-
-#connectionLinks {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    padding-top: 3vh;
-}
-
-.connections {
-    height: 10vh;
-    margin-left: 3px;
-    margin-top: 20px;
 }
